@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>오늘은 어떤 추억을 담아볼까?</title>
+<link rel="icon" href="./images/android-chrome-192x192.png">
+<link rel="stylesheet" href="./reset/work_reset.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="./reset/jquery-ui.min.js"></script>
+<script src="./reset/jquery.smoothwheel.js"></script>
+<script src="./reset/script.js"></script>
+
+<script>
+$(function() {
+
+// Section5 Slide
+var current = 0;
+$("#sec5 #pager li").eq(1).click(function() {
+if(current == 4){
+    current = 0;
+} else{
+    current += 1;
+}
+$("#sec5 #slide_wrap").stop().animate({"margin-left":-(80*current)+'vw'}, 300);
+    //console.log(current);
+});
+$("#sec5 #pager li").eq(0).click(function() {
+if(current == 0){
+    current = 4;
+} else{
+    current -= 1;
+}
+$("#sec5 #slide_wrap").stop().animate({"margin-left":-(80*current)+'vw'}, 300);
+    //console.log(current);
+});
+    
+// Section6 Click
+$("#sec6 #left li").eq(0).addClass("on");
+$("#sec6 #right li").eq(0).css({display:'block'});
+$("#sec6 #left li").click(function() {
+
+$("#sec6 #left li").removeClass("on");
+$(this).addClass("on");
+var index = $(this).index();
+
+$("#sec6 #right li").eq(index).siblings().stop().fadeOut(300);
+$("#sec6 #right li").eq(index).stop().fadeIn(500);
+});
+
+// Section7 Slide
+function sec7Slide() {
+$("#sec7 #slide_wrap").stop().animate({"margin-left":'-100vw'}, 300, function() {
+    $(this).find("li").eq(0).appendTo(this);
+    $(this).css({"margin-left":0});
+});
+} 
+setInterval(sec7Slide, 4000);
+
+})// end
+</script>
+</head>
+
+<body>
+
+<div id="container">
+<!-- HEADER -->
+<header>
+<h1 id="logo"><a href="./index.html">
+<img src=""></a></h1>
+</header>
+
+<!-- TOP BUTTON -->
+<div id="top_btn">
+<div></div><div></div>
+</div>
+
+<!-- FRONT -->
+<div id="front">
+<div id="img"><img src="images/front.jpg" alt="mongsang"></div>
+<div id="title"><p>Baskin Robbins
+<span>1조 &nbsp; |&nbsp; 이서예 이진희 오윤지 엄영룡 오미은</span></p></div>
+<div id="click_arr"><div></div><div></div></div>
+</div>
+
+<!-- CONTENT --> 
+<div id="contents">
+<section id="sec1">
+<h1>베스킨라빈스</h1>
+<p>오늘은 어떤 추억을 담아볼까?<br>베스킨라빈스에 예쁜 추억을 담아보세요.</p>
+</section>
+<section id="sec2">
+<div id="vid"><video controls><source src="images/Intro_Video.mp4" width="1920" height="1070"></video></div>
+</section>
+<section id="sec3">
+<div id="img"><img src="images/mongsang_2(2).png" alt="mongsang"></div>
+<div id="img2"><img src="images/spoon.png" alt="mongsang"></div>
+<div id="text">
+<h1>달콤한 디저트로 만들어보는 '추억'</h1>
+<p>아이스크림 한 스푼, 다시 기억하고 싶은 순간,<br>당신이 추억하고 싶은 장면들... 베스킨라빈스가 이루어 드립니다.<br>
+<span>베스킨라빈스는 단순한 디저트가 아닌, 순간의 추억을 담아드립니다.<br>사랑하는 가족, 연인, 우정, 희망, 추억이 담겨있는<br>베스킨라빈스의 제품을 직접 경험해 보세요.</span></p>
+</div>
+</section>
+<section id="sec4">
+<div id="img"><img src="images/mongsang_3(2).png" alt="mongsang"></div>
+<div id="text">
+<h1>Popular Flavors</h1>
+<p> <b style="color: palevioletred; font-size: 19px;">레인보우샤베트</b> #파인애플 #라즈베리 #오렌지
+    <br><b style="color: palevioletred; font-size: 19px;">슈팅스타</b> #톡톡 #팝핑캔디 #체리
+    <br><b style="color: palevioletred; font-size: 19px;">엄마는외계인</b> #초콜릿 #초코볼
+    <br><b style="color: palevioletred; font-size: 19px;">이상한나라의솜사탕</b> #달달 #부드러운 #솜사탕
+    <br><b style="color: palevioletred; font-size: 19px;">민트초콜릿칩</b> #민트 #초콜릿 #민초
+</p>
+</div>
+</section>
+<section id="sec5">
+<div id="text"><h1>USAGE</h1></div>
+<div id="bg">
+<div id="slide">
+<ul id="slide_wrap">
+<li><img src="images/Step_1.jpg" alt="mongsang"></li>
+<li><img src="images/Step_2.jpg" alt="mongsang"></li>
+<li><img src="images/Step_3.jpg" alt="mongsang"></li>
+<li><img src="images/Step_4.jpg" alt="mongsang"></li>
+<li><img src="images/Step_Plus.jpg" alt="mongsang"></li>
+</ul>
+</div>
+<ul id="pager">
+<li>&#9664;</li><li>&#9654;</li>
+</ul>
+</div>
+</section>
+<section id="sec6">
+<div id="left">
+<ul><li></li><li></li><li></li><li></li><li></li></ul>
+</div>
+<div id="right">
+<ul>
+<li><div id="img"><img src="images/icon1-2.png" alt="mongsang"></div>
+<p><span style="color: red;">레인보우샤베트</span>상큼한 파인애플, 오렌지, 라즈베리가 만드는<br>일곱빛깔 무지개</p></li>
+<li><div id="img"><img src="images/icon2-2.png" alt="mongsang"></div>
+<p><span style="color:  rgb(60, 111, 252);">슈팅스타</span>블루베리 & 바닐라향에 입안에서 톡톡 터지는<br>캔디와 신나는 축제</p></li>
+<li><div id="img"><img src="images/icon3-2.png" alt="mongsang"></div>
+<p><span  style="color: brown;">엄마는외계인</span>밀크 초콜릿, 다크 초콜릿, 화이트 무스 세 가지<br>달콤 바삭한 초코볼이 더해진 아이스크림</p></li>
+<li><div id="img"><img src="images/icon4-2.png" alt="mongsang"></div>
+<p><span  style="color: rgb(245, 117, 177);">이상한나라의솜사탕</span>부드럽고 달콤한 솜사탕과 함께 떠나는<br>이상한 나라로의 여행</p></li>
+<li><div id="img"><img src="images/icon5-2.png" alt="mongsang"></div>
+<p><span style="color:  rgb(0, 173, 98);">민트초콜릿칩</span>쿨한 당신의 선택!<br>상쾌한 민트향에 초코칩까지!</p></li>
+</ul> 
+</div>
+<div id="text">
+<h1 style="color: rgb(12, 9, 105); font-size: 20px;">KEYWORD</h1>
+<p> <span style="color: red; font-size: 18px;">Rainbow Sherbet</span> &nbsp;&nbsp;&nbsp;오렌지 파인애플 라즈베리<br>
+    <span style="color: rgb(77, 89, 255); font-size: 18px;">Shooting Star</span> &nbsp;&nbsp;&nbsp;블루베리 바닐라 체리시럽 딸기과육 블루팝핑캔디<br>
+    <span style="color: brown; font-size: 18px;">Puss In Boot</span> &nbsp;&nbsp;&nbsp;밀크&다크초콜릿 화이트무스 초콜릿칩 초코프레첼<br>
+    <span style="color: rgb(189, 189, 9); font-size: 18px;">Cotton Candy Worderland</span> &nbsp;&nbsp;&nbsp;솜사탕 옐로우크런치 핑크크런치<br>
+    <span style="color: rgb(0, 173, 98); font-size: 18px;">민트 초콜릿칩</span> &nbsp;&nbsp;&nbsp;민트 초코칩</p>
+</div>
+<!-- <ul>
+<li><div id="img"><img src="images/icon_on_1.png" alt="mongsang"></div>
+<p><span>레인보우샤베트</span>상큼한 파인애플, 오렌지, 라즈베리가 만드는<br>일곱빛깔 무지개</p></li>
+<li><div id="img"><img src="images/icon_on_2.png" alt="mongsang"></div>
+<p><span>슈팅스타</span>블루베리 & 바닐라향에 입안에서 톡톡 터지는<br>캔디와 신나는 축제</p></li>
+<li><div id="img"><img src="images/icon_on_3.png" alt="mongsang"></div>
+<p><span>엄마는외계인</span>밀크 초콜릿, 다크 초콜릿, 화이트 무스 세 가지<br>달콤 바삭한 초코볼이 더해진 아이스크림</p></li>
+<li><div id="img"><img src="images/icon_on_4.png" alt="mongsang"></div>
+<p><span>이상한나라의솜사탕</span>부드럽고 달콤한 솜사탕과 함께 떠나는<br>이상한 나라로의 여행</p></li>
+<li><div id="img"><img src="images/icon_on_5.png" alt="mongsang"></div>
+<p><span>민트초콜릿칩</span>쿨한 당신의 선택!<br>상쾌한 민트향에 초코칩까지!</p></li>
+</ul> 
+</div>
+<div id="text">
+<h1>KEYWORD</h1>
+<p>Rainbow Sherbet: <span style="font-size: 12px; color: skyblue;">오렌지 파인애플 라즈베리</span><br>
+Shooting Star: 블루베리 바닐라 체리시럽 딸기과육 블루팝핑캔디<br>
+Puss In Boots: 밀크&다크초콜릿 화이트무스 초콜릿칩 초코프레첼<br>
+Cotton Candy Worderland: 솜사탕 옐로우크런치 핑크크런치<br>
+Mint Chocolate Chip: 민트 초콜릿칩</p>
+</div> -->
+</section>
+<section id="sec7">
+<div id="text"><h1>PRODUCT</h1></div>
+<div id="slide">
+<ul id="slide_wrap">
+<li><img src="images/mongsang-12.jpg" alt="mongsang"></li>
+<li><img src="images/mongsang-13.jpg" alt="mongsang"></li>
+<li><img src="images/mongsang-14.jpg" alt="mongsang"></li>
+</ul></div>
+<div id="img">
+<img src="images/mongsang_11.jpg" alt="mongsang">
+</div>
+</section>
+<section id="sec8">
+<img src="images/end.jpg" alt="mongsang">
+</section>
+</div>
+
+</div>
+</body>
+</html>
